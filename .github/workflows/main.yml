@@ -1,0 +1,96 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches-ignore:
+    - development
+    - staging
+    - production
+
+  pull_request:
+    branches:
+      - development
+      - staging
+      - production
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Cache node modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-modules-
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run ESLint
+        run: npm run lint
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Run tests with increased memory
+        run: node --max-old-space-size=4096 ./node_modules/.bin/jest --verbose
+
+      - name: Run unit tests
+        run: npm test
+
+  e2e:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && (github.base_ref == 'staging' || github.base_ref == 'production')
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Cache node modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-modules-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Cypress tests for the target branch
+        run: |
+          if [ "${{ github.base_ref }}" == "staging" ]; then
+            echo "Running e2e tests for staging"
+            npm run e2e:ci:staging
+          elif [ "${{ github.base_ref }}" == "production" ]; then
+            echo "Running e2e tests for production"
+            npm run e2e:ci:production
+          else
+            echo "Branch not recognized for e2e tests"
+            exit 1
+          fi
