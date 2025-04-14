@@ -1,0 +1,24 @@
+<header class="bg-primary text-white p-4 shadow-md sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <h1 class="text-xl font-bold tracking-wide">SisterSmade</h1>
+    <nav>
+      <ul class="flex gap-6 text-sm font-medium">
+        <li>
+          <a
+            routerLink="/"
+            routerLinkActive="border-b-2 border-white"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="pb-1 transition-all hover:opacity-80"
+            >Accueil</a
+          >
+        </li>
+        <li>
+          <a routerLink="/community" routerLinkActive="border-b-2 border-white" class="pb-1 transition-all hover:opacity-80">Communauté</a>
+        </li>
+        <li>
+          <a routerLink="/profile" routerLinkActive="border-b-2 border-white" class="pb-1 transition-all hover:opacity-80">Mon profil</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
