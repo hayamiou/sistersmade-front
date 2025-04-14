@@ -39,7 +39,7 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles/main.scss"
             ],
             "scripts": []
           },
@@ -174,6 +174,7 @@
       "@schematics/angular",
       "@cypress/schematic",
       "@angular-eslint/schematics"
-    ]
+    ],
+    "analytics": false
   }
 }

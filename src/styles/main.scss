@@ -1,0 +1,13 @@
+// Tailwind
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+
+// Customized files
+@import 'variables';
+@import 'mixins';
+@import 'base';
+@import 'components';
+@import 'utilities';
+
+// Tailwind utilities
+@import 'tailwindcss/utilities';
