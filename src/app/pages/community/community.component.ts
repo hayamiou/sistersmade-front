@@ -5,6 +5,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './community.component.html',
-  styleUrl: './community.component.scss',
+  styleUrls: ['./community.component.scss'],
 })
 export class CommunityComponent {}
