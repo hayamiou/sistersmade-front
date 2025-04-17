@@ -1,8 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { HeaderComponent } from './header.component';
+import { HeaderComponent } from '../../../app/layout/header/header.component';
 import { provideRouter } from '@angular/router';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { routes } from '../../app.routes';
+import { routes } from '../../../app/app.routes';
+import {
+  getHeading,
+  getRouterLinks,
+  getRouterLinkActiveElements
+} from '../../spec-helpers';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -23,28 +28,26 @@ describe('HeaderComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render the title "SisterSmade"', () => {
+  it('should render the title "SistersMade"', () => {
     const compiled: HTMLElement = fixture.nativeElement;
-    const titleElement = compiled.querySelector('h1');
-    expect(titleElement?.textContent).toContain('SisterSmade');
+    const titleElement = getHeading(compiled);
+    expect(titleElement).not.toBeNull();
+    expect(titleElement!.textContent).toContain('SistersMade');
   });
 
   it('should contain nav links for expected routes', () => {
     const compiled: HTMLElement = fixture.nativeElement;
-    const links = compiled.querySelectorAll('a[routerLink]');
-    const routerLinks = Array.from(links).map(link => link.getAttribute('routerLink'));
-
+    const routerLinks = getRouterLinks(compiled);
     expect(routerLinks).toEqual(['/', '/community', '/profile']);
   });
-  
+
   it('should have correctly configured routerLinkActive classes', () => {
     const compiled: HTMLElement = fixture.nativeElement;
-    const activeLinks = compiled.querySelectorAll('a[routerLinkActive]');
+    const activeLinks = getRouterLinkActiveElements(compiled);
 
-    expect(activeLinks).toBeTruthy();
     expect(activeLinks.length).toBe(3);
     activeLinks.forEach(link => {
-      expect(link.getAttribute('routerLinkActive')).toContain('border-b-2 border-white');
+      expect(link.getAttribute('routerLinkActive')).toContain('router-link-active');
     });
   });
 });

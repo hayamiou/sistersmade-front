@@ -1,0 +1,43 @@
+@import 'tokens';
+
+// === Base button style ===
+.btn {
+  @apply inline-block font-semibold transition text-sm tracking-wide;
+  @apply px-4 py-2 rounded-full;
+}
+
+// === Primary button ===
+.btn-primary {
+  @apply bg-primary text-white;
+
+  &:hover {
+    background-color: darken($primary, 10%);
+  }
+}
+
+// === Secondary button ===
+.btn-secondary {
+  @apply bg-secondary text-white;
+
+  &:hover {
+    background-color: darken($secondary, 10%);
+  }
+}
+
+// === Ghost button ===
+.btn-ghost {
+  @apply border border-primary text-primary bg-transparent;
+
+  &:hover {
+    background-color: $pink-light;
+  }
+}
+
+// === Danger button ===
+.btn-danger {
+  @apply bg-red-600 text-white;
+
+  &:hover {
+    background-color: darken(#dc2626, 10%); // #dc2626 = red-600
+  }
+}

@@ -1,0 +1,19 @@
+@import 'mixins';
+@import 'tokens';
+
+.app-header {
+  @apply bg-primary text-white py-4 px-6 shadow-md sticky top-0 z-50;
+
+  .header-container {
+    @apply flex items-center justify-between w-full max-w-[90rem] mx-auto px-4 sm:px-8;
+  }
+
+  .site-title {
+    @include sisters-title(white);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 10rem; // pour tester visuellement
+  }
+}
