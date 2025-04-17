@@ -1,0 +1,22 @@
+@import 'tokens';
+
+@mixin center-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin sisters-title($color: #000) {
+  font-family: 'Dream Home', cursive;
+  font-size: clamp(2.25rem, 5vw, 3rem);
+  font-weight: 800;
+  color: $color;
+}
+
+@mixin section-padding {
+  padding: 4rem 1rem;
+
+  @media (min-width: $break-md) {
+    padding: 6rem 2rem;
+  }
+}
