@@ -1,0 +1,41 @@
+@import 'mixins';
+@import 'tokens';
+
+.app-header {
+  @apply bg-primary text-white px-6 sticky top-0 z-50;
+  height: 8rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4px);
+
+  .header-container {
+    @apply flex justify-between w-full max-w-[90rem] mx-auto px-4 sm:px-8;
+    height: 8rem;
+  }
+
+  .site-title {
+    @include sisters-title(white);
+    align-items: flex-start;
+    display: flex;
+    height: 100%;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 4rem;
+    align-items: flex-end;
+    height: 100%;
+    justify-content: flex-end;
+
+    a {
+      font-size: 1.125rem;
+      font-weight: 800;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #FFBBCC;
+      }
+    }
+  }
+}

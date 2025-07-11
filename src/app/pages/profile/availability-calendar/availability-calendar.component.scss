@@ -1,0 +1,29 @@
+@import 'src/styles/_tokens.scss';
+
+.event-available {
+  color: #34d399; // vert clair
+  font-weight: bold;
+  font-size: $font-base;
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-sm;
+
+  &::before {
+    content: "💪";
+    margin-right: $spacing-xs;
+  }
+}
+
+.event-help {
+  color: $primary;
+  font-weight: bold;
+  font-size: $font-base;
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-sm;
+
+  &::before {
+    content: "🆘";
+    margin-right: $spacing-xs;
+  }
+}

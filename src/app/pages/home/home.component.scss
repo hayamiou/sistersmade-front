@@ -1,0 +1,58 @@
+@import 'mixins';
+@import 'tokens';
+
+.hero-section {
+  @apply bg-pink-50 py-16 px-4 sm:px-8;
+
+  .hero-container {
+    @apply max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-12;
+  }
+
+  .hero-text {
+    @apply md:w-1/2 text-center md:text-left;
+  }
+
+  .hero-title {
+    @include sisters-title($primary);
+  }
+
+  .hero-subtitle {
+    @apply italic text-lg sm:text-xl text-pink-600 mb-6;
+  }
+
+  .hero-description {
+    @apply text-gray-700 text-base sm:text-lg space-y-4;
+
+    .highlight {
+      @apply text-primary font-semibold;
+    }
+
+    .semi-bold {
+      @apply font-medium;
+    }
+
+    .note {
+      @apply text-gray-500;
+    }
+  }
+
+  .hero-quote {
+    @apply border-l-4 border-primary pl-4 italic text-gray-600 mt-6;
+  }
+
+  .hero-cta {
+    @apply mt-10;
+
+    .cta-button {
+      @apply inline-block px-6 py-3 rounded-full bg-primary text-white text-sm font-semibold tracking-wide hover:bg-pink-700 transition;
+    }
+  }
+
+  .hero-image {
+    @apply md:w-1/2;
+
+    .image {
+      @apply rounded-xl shadow-xl mt-6 w-full max-w-3xl mx-auto;
+    }
+  }
+}

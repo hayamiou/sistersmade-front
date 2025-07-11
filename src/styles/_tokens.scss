@@ -1,0 +1,48 @@
+// === COLORS ===
+$primary: #e91e63;
+$secondary: #9c27b0;
+$pink-light: #fdf2f8;
+$text-dark: #374151;
+$text-light: #ffffff;
+$gray-light: #f3f4f6;
+$gray-dark: #4b5563;
+
+// === FONT ===
+$font-title: 'Dream Home', cursive;
+$font-base: 'Inter', sans-serif;
+
+// === BREAKPOINTS ===
+$break-sm: 640px;
+$break-md: 768px;
+$break-lg: 1024px;
+$break-xl: 1280px;
+
+// === BORDER RADIUS ===
+$radius-sm: 0.25rem; // 4px
+$radius-md: 0.5rem; // 8px
+$radius-lg: 1rem; // 16px
+$radius-xl: 2rem; // 32px
+$radius-full: 9999px; // pour les badges, avatars...
+
+// === SPACING (marges/paddings) ===
+$spacing-xs: 0.25rem; // 4px
+$spacing-sm: 0.5rem; // 8px
+$spacing-md: 1rem; // 16px
+$spacing-lg: 1.5rem; // 24px
+$spacing-xl: 2rem; // 32px
+$spacing-2xl: 4rem; // 64px
+
+// === FONT SIZES ===
+$font-sm: 0.875rem; // 14px
+$font-base: 1rem; // 16px
+$font-lg: 1.125rem; // 18px
+$font-xl: 1.5rem; // 24px
+$font-2xl: 2rem; // 32px
+$font-3xl: 3rem; // 48px
+$font-4xl: 4rem; // 64px
+
+// === SHADOWS ===
+$shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
+$shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.2);

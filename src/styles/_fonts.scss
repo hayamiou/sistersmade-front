@@ -1,0 +1,13 @@
+@mixin font($name, $file) {
+  @font-face {
+    font-family: '#{$name}';
+    src: url('/assets/fonts/#{$file}') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+}
+
+// Each new font can be added here to SistersMade <3
+
+@include font('Dream Home', 'Dream-Home.ttf');
+// @include font('Another Font', 'AnotherFont.ttf');
