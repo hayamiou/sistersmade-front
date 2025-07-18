@@ -4,9 +4,7 @@ import { AvailabilityCalendarComponent } from './availability-calendar/availabil
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [
-    AvailabilityCalendarComponent,
-  ],
+  imports: [AvailabilityCalendarComponent],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss',
 })

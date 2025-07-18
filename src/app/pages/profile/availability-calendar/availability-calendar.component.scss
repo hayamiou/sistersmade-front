@@ -9,7 +9,7 @@
   gap: $spacing-sm;
 
   &::before {
-    content: "💪";
+    content: '💪';
     margin-right: $spacing-xs;
   }
 }
@@ -23,7 +23,11 @@
   gap: $spacing-sm;
 
   &::before {
-    content: "🆘";
+    content: '🆘';
     margin-right: $spacing-xs;
   }
+}
+
+.calendar {
+  height: 600px;
 }
