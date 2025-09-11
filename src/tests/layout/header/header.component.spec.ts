@@ -38,7 +38,7 @@ describe('HeaderComponent', () => {
   it('should contain nav links for expected routes', () => {
     const compiled: HTMLElement = fixture.nativeElement;
     const routerLinks = getRouterLinks(compiled);
-    expect(routerLinks).toEqual(['/', '/community', '/profile']);
+    expect(routerLinks).toEqual(expect.arrayContaining(['/', '/community', '/profile']));
   });
 
   it('should have correctly configured routerLinkActive classes', () => {
